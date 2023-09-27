@@ -1,3 +1,5 @@
+# 增加功能，每次使用完后卸载掉checkpoint，减少显存占用
+
 # SD Webui Memory Release
 This is an Extension for the [Automatic1111 Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), that calls `torch.cuda.empty_cache()` after each generation.
 
