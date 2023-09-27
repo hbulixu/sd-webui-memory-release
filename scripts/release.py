@@ -43,6 +43,10 @@ def mem_release():
     except:
         if shared.opts.memre_debug and shared.opts.memre_debug is True:
             print('\n[Warning] Memory Release Failed...!\n')
+            
+def release_all_mem():
+    models.unload_model_weights()
+    mem_release()
 
 def reload_models():
     models.unload_model_weights()
@@ -73,7 +77,7 @@ class Script(scripts.Script):
         return None
 
     def postprocess(self, *args):
-        mem_release()
+        release_all_mem()
 
 def on_ui_settings():
     shared.opts.add_option("memre_debug", shared.OptionInfo(False, "Memory Release - Debug", section=("system", "System")))
